@@ -1,0 +1,52 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.half-width {
+    grid-column: span 1;
+}
+
+mat-card-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .full-width, .half-width {
+        grid-column: span 1;
+    }
+}

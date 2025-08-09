@@ -1,0 +1,39 @@
+<form [formGroup]="trainerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name" class="form-label">نام کامل</label>
+    <input id="name" formControlName="name" type="text" placeholder="نام مربی" class="form-control">
+    <div *ngIf="trainerForm.get('name')?.touched && trainerForm.get('name')?.invalid" class="error-message">
+      <span *ngIf="trainerForm.get('name')?.hasError('required')">نام الزامی است</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="phone" class="form-label">شماره تماس</label>
+    <input id="phone" formControlName="phone" type="tel" placeholder="09123456789" class="form-control">
+    <div *ngIf="trainerForm.get('phone')?.touched && trainerForm.get('phone')?.invalid" class="error-message">
+      <span *ngIf="trainerForm.get('phone')?.hasError('required')">شماره تماس الزامی است</span>
+      <span *ngIf="trainerForm.get('phone')?.hasError('pattern')">فرمت شماره تماس نامعتبر است</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="specialization" class="form-label">تخصص</label>
+    <input id="specialization" formControlName="specialization" type="tel" placeholder="بدنسازی" class="form-control">
+    <div *ngIf="trainerForm.get('specialization')?.touched && trainerForm.get('specialization')?.invalid" class="error-message">
+      <span *ngIf="trainerForm.get('specialization')?.hasError('required')">نخصص الزامی است</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="schedule" class="form-label">تایم کاری</label>
+    <input id="schedule" formControlName="schedule" type="tel" placeholder="" class="form-control">
+    <div *ngIf="trainerForm.get('schedule')?.touched && trainerForm.get('schedule')?.invalid" class="error-message">
+      <span *ngIf="trainerForm.get('schedule')?.hasError('required')">تایم کاری الزامی است</span>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success " >
+    <span *ngIf="!isLoading">ثبت مربی</span>
+    <span *ngIf="isLoading">در حال ثبت...</span>
+  </button>
+</form>

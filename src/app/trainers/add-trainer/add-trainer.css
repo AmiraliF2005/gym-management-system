@@ -1,0 +1,17 @@
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.success-snackbar {
+  background-color: #28a745;
+}
+
+.error-snackbar {
+  background-color: #dc3545;
+}

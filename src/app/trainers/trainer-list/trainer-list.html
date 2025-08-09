@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>لیست مربیان</h2>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ستون نام -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> نام </th>
+      <td mat-cell *matCellDef="let trainer"> {{trainer.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef> تلفن </th>
+      <td mat-cell *matCellDef="let element"> {{element.phon}} </td>
+    </ng-container>
+
+    <!-- ستون تخصص -->
+    <ng-container matColumnDef="specialization">
+      <th mat-header-cell *matHeaderCellDef> تخصص </th>
+      <td mat-cell *matCellDef="let trainer"> {{trainer.specialization}} </td>
+    </ng-container>
+
+    <!-- سایر ستون‌ها -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

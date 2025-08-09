@@ -1,0 +1,31 @@
+<!-- trainer-list.component.html -->
+<div class="container mt-4">
+    <button routerLink="/trainers/add" class="btn btn-primary mb-3">
+        افزودن مربی جدید
+    </button>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>نام</th>
+                <th>تخصص</th>
+                <th>تلفن</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (trainer of trainers ; track $index) {
+            <tr>
+                <td>{{ trainer.name }}</td>
+                <td>{{ trainer.specialization }}</td>
+                <td>{{ trainer.phone }}</td>
+                <td>
+                    <button [routerLink]="['/trainers/edit', trainer.id]" class="btn btn-sm btn-warning">ویرایش</button>
+                    <button (click)="deleteTrainer(trainer.id)" class="btn btn-sm btn-danger mx-2">حذف</button>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

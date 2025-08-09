@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>نام دوره</th>
+      <th>مربی</th>
+      <th>زمان شروع</th>
+      <th>زمان پایان</th>
+      <th>ظرفیت</th>
+      <th>عملیات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let class of classes">
+      <td>{{ class.name }}</td>
+      <td>{{ class.trainerName }}</td>
+      <td>{{ class.startTime | date:'short' }}</td>
+      <td>{{ class.endTime | date:'short' }}</td>
+      <td>{{ class.capacity }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm me-2" (click)="editClass(class.id!)" title="ویرایش">
+          <i class="bi bi-pencil"></i> ویرایش
+        </button>
+        <button class="btn btn-danger btn-sm me-2" (click)="deleteClass(class.id!)" title="حذف">
+          <i class="bi bi-trash"></i> حذف
+        </button>
+        <button class="btn btn-success btn-sm" (click)="registerClass(class.id!)" title="ثبت‌نام">
+          <i class="bi bi-person-plus"></i> ثبت‌نام
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

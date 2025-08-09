@@ -1,0 +1,76 @@
+<!-- src/app/components/class-form/class-form.component.html -->
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-card class="form-card">
+        <mat-card-header>
+            <mat-card-title>{{ classId ? 'ویرایش دوره ورزشی' : 'ایجاد دوره ورزشی' }}</mat-card-title>
+            <mat-card-subtitle>اطلاعات دوره را وارد کنید</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="form-grid">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>نام دوره</mat-label>
+                    <input matInput formControlName="name" placeholder="مثال: یوگا پیشرفته">
+                    <mat-icon matPrefix>sports</mat-icon>
+                    <mat-error *ngIf="classForm.get('name')?.hasError('required')">
+                        نام دوره اجباری است
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>مربی</mat-label>
+                    <mat-select formControlName="trainerId" placeholder="انتخاب مربی">
+                        <mat-option *ngIf="trainers.length === 0" disabled>هیچ مربی‌ای موجود نیست</mat-option>
+                        <mat-option *ngFor="let trainer of trainers" [value]="trainer.id">
+                            {{ trainer.name }} ({{ trainer.specialization }})
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <mat-error *ngIf="classForm.get('trainerId')?.hasError('required')">
+                        انتخاب مربی اجباری است
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>زمان شروع</mat-label>
+                    <input matInput type="datetime-local" formControlName="startTime">
+                    <mat-icon matPrefix>event</mat-icon>
+                    <mat-error *ngIf="classForm.get('startTime')?.hasError('required')">
+                        زمان شروع اجباری است
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>زمان پایان</mat-label>
+                    <input matInput type="datetime-local" formControlName="endTime">
+                    <mat-icon matPrefix>event_busy</mat-icon>
+                    <mat-error *ngIf="classForm.get('endTime')?.hasError('required')">
+                        زمان پایان اجباری است
+                    </mat-error>
+                    <mat-error *ngIf="classForm.get('endTime')?.hasError('invalidEndTime')">
+                        زمان پایان باید بعد از زمان شروع باشد
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>ظرفیت</mat-label>
+                    <input matInput type="number" formControlName="capacity" placeholder="مثال: 20">
+                    <mat-icon matPrefix>group</mat-icon>
+                    <mat-error *ngIf="classForm.get('capacity')?.hasError('required')">
+                        ظرفیت اجباری است
+                    </mat-error>
+                    <mat-error *ngIf="classForm.get('capacity')?.hasError('min')">
+                        ظرفیت باید بیشتر از 0 باشد
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" type="submit" class="btn btn-primary" [disabled]="classForm.invalid">
+                <mat-icon>save</mat-icon> ذخیره
+            </button>
+            <button mat-stroked-button color="warn" type="button" (click)="onCancel()">
+                <mat-icon>cancel</mat-icon> انصراف
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
