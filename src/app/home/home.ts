@@ -10,9 +10,10 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-home',
   imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule],
   templateUrl: './home.html',
+  standalone: true,
   styleUrl: './home.css'
 })
-export class Home implements OnInit {
+export class Home {
   isAuthenticated: boolean = false;
   private authService!: AuthService;
 

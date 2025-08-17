@@ -6,4 +6,5 @@ export interface Class{
   startTime: string;
   endTime: string;
   capacity: number;
+  price: number;
 }

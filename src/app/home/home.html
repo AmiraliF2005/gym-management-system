@@ -1,23 +1,24 @@
-<mat-card class="home-container">
-    <mat-card-content>
+<div class="home-container">
+    <div class="content-box">
         @if (!isAuthenticated) {
             <div class="text-center">
-                <h1>Gym Management</h1>
-                <p class="lead">اگه می‌خوای باشگاه مورد علاقه‌ات رو پیدا کنی، لطفاً ثبت‌نام کن</p>
+                <h1 class="title">🏋️ Gym Management</h1>
+                <p class="subtitle">اگه می‌خوای باشگاه مورد علاقه‌ات رو پیدا کنی، لطفاً ثبت‌نام کن</p>
                 <div class="button-group">
-                    <a mat-raised-button color="primary" routerLink="/register" class="me-2">ثبت‌نام</a>
-                    <button mat-raised-button color="accent">اطلاعات بیشتر</button>
+                    <a href="/register" class="btn primary">ثبت‌نام</a>
+                    <a href="/login" class="btn secondary">ورود</a>
+                    <button class="btn accent">اطلاعات بیشتر</button>
                 </div>
             </div>
         } @else {
             <div class="text-center">
-                <h1>خوش آمدید!</h1>
-                <p class="lead">شما وارد شده‌اید. برای ثبت‌نام در دوره‌ها اقدام کنید.</p>
+                <h1 class="title">خوش آمدید! 🎉</h1>
+                <p class="subtitle">شما وارد شده‌اید. برای ثبت‌نام در دوره‌ها اقدام کنید.</p>
                 <div class="button-group">
-                    <a mat-raised-button color="primary" routerLink="/classes">مشاهده دوره‌ها</a>
-                    <button mat-raised-button color="warn" (click)="logout()">خروج</button>
+                    <a href="/classes" class="btn primary">مشاهده دوره‌ها</a>
+                    <button class="btn danger" (click)="logout()">خروج</button>
                 </div>
             </div>
         }
-    </mat-card-content>
-</mat-card>
+    </div>
+</div>

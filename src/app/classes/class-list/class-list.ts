@@ -69,9 +69,10 @@ export class ClassList implements OnInit {
       return;
     }
 
-    this.http.post('https://localhost:7213/api/class-registrations', id).subscribe({
+    this.http.post('https://localhost:7213/api/classRegistration', id).subscribe({
       next: () => {
         alert(`ثبت‌نام برای دوره با شناسه ${id} انجام شد`);
+        this.router.navigate(['/payment']);
       },
       error: err => {
         console.error('Registration error:', err);

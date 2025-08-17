@@ -1,9 +1,28 @@
-.dorpdown-toggle , .dropdown-item{
-    cursor: pointer;
+.navbar {
+    padding: 0.5rem 1rem;
 }
 
-img{
-    max-height: 50px;
-    border: 2px solid white;
-    display: inline;
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.navbar-text {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcome-message {
+    color: white;
+    font-size: 1rem;
+}
+
+button[mat-button] {
+    margin-left: 0.5rem;
 }

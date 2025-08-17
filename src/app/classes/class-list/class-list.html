@@ -6,6 +6,7 @@
       <th>زمان شروع</th>
       <th>زمان پایان</th>
       <th>ظرفیت</th>
+      <th>قیمت</th>
       <th>عملیات</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <td>{{ class.startTime | date:'short' }}</td>
       <td>{{ class.endTime | date:'short' }}</td>
       <td>{{ class.capacity }}</td>
+      <td>{{ class.price }}</td>
       <td>
         <button class="btn btn-primary btn-sm me-2" (click)="editClass(class.id!)" title="ویرایش">
           <i class="bi bi-pencil"></i> ویرایش

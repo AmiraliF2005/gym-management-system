@@ -28,6 +28,7 @@ import { Login } from './Auth/login/login';
 import { Register } from './Auth/register/register';
 import { App } from './app';
 import { Home } from './home/home';
+import { Payment } from './payment/payment';
 
 
 export function tokenGetter() {
@@ -55,6 +56,7 @@ export const routes: Routes = [
   { path: 'class-form/:id', component: ClassForm },
   { path: 'register', component: Register },
   { path: 'login', component: Login },
+  { path: 'payment', component: Payment },
 ];
 
 // @NgModule({
